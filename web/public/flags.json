@@ -1,0 +1,6 @@
+{
+  "pushNotifications": { "enabled": true, "rollout": 100 },
+  "askComposer": true,
+  "practiceMode": true,
+  "socialRecovery": true
+}

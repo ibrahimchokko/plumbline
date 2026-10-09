@@ -1,0 +1,114 @@
+/*
+ * Plumbline design tokens.
+ *
+ * Direction: "ledger paper". Warm paper ground, ink-black type, hairline
+ * rules like an accounts book, one hot signal colour (plumb-bob vermilion)
+ * used sparingly for the thing you should act on, and tabular monospace
+ * for every number and address so columns line up.
+ *
+ * Every component reads these variables; nothing hard-codes a colour.
+ * Dark mode swaps the variables, not the components.
+ */
+:root {
+  --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --font-ui: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --paper: #f4f1ea;
+  --paper-raised: #fbf9f4;
+  --paper-sunk: #ebe6db;
+  --ink: #1b1a17;
+  --ink-2: #4a4740;
+  --ink-3: #7d786d;
+  --rule: #d6cfc0;
+  --rule-strong: #1b1a17;
+
+  --signal: #e8590c; /* the plumb bob: primary action, live state */
+  --signal-ink: #ffffff;
+  --signal-soft: #fde4d3;
+
+  --good: #1f7a4d;
+  --good-soft: #dcefe3;
+  --warn: #a86400;
+  --warn-soft: #f8ead0;
+  --bad: #b42318;
+  --bad-soft: #f8dcd8;
+  --info: #2f5aa8;
+  --info-soft: #dfe7f6;
+
+  --chart-1: #1b1a17;
+  --chart-2: #e8590c;
+  --chart-grid: #d6cfc0;
+
+  --radius: 4px;
+  --radius-lg: 8px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 72px;
+
+  --shadow-pop: 0 1px 0 var(--rule), 0 12px 32px -12px rgb(27 26 23 / 0.28);
+  --focus: 0 0 0 2px var(--paper), 0 0 0 4px var(--signal);
+  --max: 1180px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --paper: #141310;
+    --paper-raised: #1c1b17;
+    --paper-sunk: #0f0e0c;
+    --ink: #ece6d9;
+    --ink-2: #bdb6a7;
+    --ink-3: #8b8576;
+    --rule: #34312a;
+    --rule-strong: #ece6d9;
+    --signal: #ff7a2f;
+    --signal-ink: #141310;
+    --signal-soft: #3a2216;
+    --good: #5cc28d;
+    --good-soft: #15291e;
+    --warn: #e2a33b;
+    --warn-soft: #2e2412;
+    --bad: #f0786c;
+    --bad-soft: #351816;
+    --info: #86a8eb;
+    --info-soft: #18223a;
+    --chart-1: #ece6d9;
+    --chart-2: #ff7a2f;
+    --chart-grid: #34312a;
+    --shadow-pop: 0 1px 0 var(--rule), 0 16px 40px -12px rgb(0 0 0 / 0.6);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --paper: #141310;
+  --paper-raised: #1c1b17;
+  --paper-sunk: #0f0e0c;
+  --ink: #ece6d9;
+  --ink-2: #bdb6a7;
+  --ink-3: #8b8576;
+  --rule: #34312a;
+  --rule-strong: #ece6d9;
+  --signal: #ff7a2f;
+  --signal-ink: #141310;
+  --signal-soft: #3a2216;
+  --good: #5cc28d;
+  --good-soft: #15291e;
+  --warn: #e2a33b;
+  --warn-soft: #2e2412;
+  --bad: #f0786c;
+  --bad-soft: #351816;
+  --info: #86a8eb;
+  --info-soft: #18223a;
+  --chart-1: #ece6d9;
+  --chart-2: #ff7a2f;
+  --chart-grid: #34312a;
+  --shadow-pop: 0 1px 0 var(--rule), 0 16px 40px -12px rgb(0 0 0 / 0.6);
+  color-scheme: dark;
+}

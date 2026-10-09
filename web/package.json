@@ -1,0 +1,31 @@
+{
+  "name": "@plumbline/web",
+  "version": "1.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "compatibleBackendVersion": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && vite build --config vite.embed.config.ts",
+    "preview": "vite preview",
+    "typecheck": "tsc -p ."
+  },
+  "dependencies": {
+    "@creit.tech/stellar-wallets-kit": "1.9.5",
+    "@plumbline/core": "1.0.0",
+    "@stellar/stellar-sdk": "16.3.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-router-dom": "6.30.6"
+  },
+  "optionalDependencies": {
+    "@sentry/browser": "8.55.0"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "@vitejs/plugin-react": "4.3.4",
+    "vite": "5.4.21"
+  }
+}

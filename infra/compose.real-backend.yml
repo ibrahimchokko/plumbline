@@ -1,0 +1,9 @@
+# Override: swap the mock for the real backend (cloned at ../arbiter-backend).
+services:
+  backend:
+    build: ${BACKEND_CONTEXT:-../arbiter-backend}
+    env_file:
+      - path: ${BACKEND_ENV_FILE:-../arbiter-backend/.env}
+        required: false
+    environment:
+      PORT: 4000

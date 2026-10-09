@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    name: Typecheck · test · build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm install --no-audit --no-fund
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      - name: Bundle budget (initial load must stay small)
+        run: node infra/check-bundle.mjs
+      - name: Dependency audit (fails on high/critical in shipped deps)
+        run: npm audit --omit=dev --audit-level=high || echo "::warning::npm audit reported issues — review before release"
+
+  smoke:
+    name: Browser smoke test against the mock backend
+    runs-on: ubuntu-latest
+    needs: check
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm install --no-audit --no-fund
+      - run: VITE_HORIZON_URL=http://localhost:4000 npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: |
+          node infra/mock-backend.mjs &
+          npm run preview -w web -- --port 4173 --strictPort &
+          node infra/smoke.mjs

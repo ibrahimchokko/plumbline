@@ -1,0 +1,35 @@
+{
+  "name": "plumbline",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Plumbline \u2014 a staked human verification oracle on Stellar/Soroban. Web app, shared SDK core and CLI.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "workspaces": [
+    "packages/core",
+    "web",
+    "cli"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "npm run dev -w web",
+    "build": "npm run build -w web",
+    "preview": "npm run preview -w web",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -p packages/core && tsc -p web && tsc -p cli",
+    "check": "npm run typecheck && npm test && npm run build",
+    "plumb": "npm run plumb -w cli --",
+    "mock": "node infra/mock-backend.mjs",
+    "dev:all": "node infra/dev-all.mjs",
+    "smoke": "node infra/smoke.mjs"
+  },
+  "devDependencies": {
+    "typescript": "5.6.3",
+    "vitest": "2.1.9",
+    "jsdom": "25.0.1",
+    "playwright": "1.56.1"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Plumbline",
+  "short_name": "Plumbline",
+  "description": "Answer staked questions, get settled on Stellar automatically.",
+  "start_url": "/verify",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4f1ea",
+  "theme_color": "#1b1a17",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

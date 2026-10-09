@@ -1,0 +1,18 @@
+Plumbline
+Copyright 2026 The Plumbline contributors
+
+This product is a derivative work of "arbiter-app"
+(https://github.com/Arbiter-xyz/arbiter-app), Copyright the Arbiter
+contributors, licensed under the Apache License, Version 2.0.
+
+Changes made in this derivative (per Apache-2.0 section 4(b)):
+  - Rewritten from vanilla JavaScript multi-page HTML into a TypeScript
+    monorepo: a React single-page app (web/), a shared typed SDK core
+    (packages/core/) and a single command-line tool (cli/).
+  - New name, visual identity, information architecture and copy.
+  - Bug fixes, new features and tests; see docs/migration-from-arbiter.md
+    for the complete list.
+
+The backend HTTP API and the Soroban escrow contract interface this
+software talks to were defined by the Arbiter project
+(arbiter-backend, arbiter-contract).

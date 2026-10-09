@@ -1,0 +1,38 @@
+# Local stack in one command.
+#
+#   docker compose up --build                      # mock backend + 2 simulated verifiers
+#   docker compose run --rm plumb sandbox "What is 6 x 7?"
+#
+# Want the REAL backend instead of the mock? Clone arbiter-backend next to
+# this repo and use the override file:
+#   docker compose -f docker-compose.yml -f infra/compose.real-backend.yml up --build
+# Secrets come from .env files only — never put keys in this file.
+services:
+  backend:
+    build: { context: ., dockerfile: infra/mock.Dockerfile }
+    ports: ["4000:4000"]
+    environment:
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-dev-admin-token}
+
+  verifier-a: &verifier
+    build: { context: ., dockerfile: infra/cli.Dockerfile }
+    command: ["verifier", "--id", "compose-verifier-a", "--answer", "42"]
+    restart: on-failure
+    depends_on: [backend]
+    environment:
+      BACKEND_URL: http://backend:4000
+    env_file:
+      - path: ./cli/.env
+        required: false
+
+  verifier-b:
+    <<: *verifier
+    command: ["verifier", "--id", "compose-verifier-b", "--answer", "42"]
+
+  # One-shot: docker compose run --rm plumb sandbox "your question"
+  plumb:
+    profiles: [tools]
+    build: { context: ., dockerfile: infra/cli.Dockerfile }
+    depends_on: [backend]
+    environment:
+      BACKEND_URL: http://backend:4000
