@@ -344,5 +344,4 @@ Contributions are welcome. See [`CONTRIBUTING.md`](CONTRIBUTING.md). If you came
 **Credits.** Plumbline is a derivative of [**arbiter-app**](https://github.com/Arbiter-xyz/arbiter-app) by the Arbiter contributors (Apache-2.0). It talks to the Arbiter-defined backend API and Soroban contract interface. It was rewritten into a TypeScript monorepo with a new design, a unified app shell, many fixes and new features. The full list is in [`docs/migration-from-arbiter.md`](docs/migration-from-arbiter.md), and attribution is in [`NOTICE`](NOTICE).
 
 **License.** [Apache License 2.0](LICENSE). Keep `LICENSE` and `NOTICE` with any redistribution.
-#   p l u m b l i n e  
- 
+#
