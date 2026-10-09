@@ -46,12 +46,3 @@ Who benefits.
 Files likely involved, related docs.
 ```
 
-## PRs
-
-- One focused change per PR. Link the issue (`Closes #12`).
-- Include a screenshot or GIF for UI changes, light and dark.
-- `npm run check` must pass. `npm run smoke` too, if you touched routes.
-
-## Drips Wave
-
-If you found this repo through Drips Wave, read [`docs/drips-wave.md`](docs/drips-wave.md). Apply for the issue in the Drips app and **wait to be assigned before you start coding**.
